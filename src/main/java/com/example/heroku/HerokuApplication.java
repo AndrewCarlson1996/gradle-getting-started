@@ -89,13 +89,14 @@ public class HerokuApplication {
 
     
   public String getRandomString(){
-    StringBuilder sb = new StringBuilder(10);
-    String alphabet = "abcdefghijklmnopqrstuvwxyz";
-    for(int i = 0; i < 10; i++){
-      int index = (int)(alphabet.length() * Math.random());
-      sb.append(alphabet.charAt(index));
-    }
-    return "hello";//sb.toString();
+    // StringBuilder sb = new StringBuilder(10);
+    // String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    // for(int i = 0; i < 10; i++){
+    //   int index = (int)(alphabet.length() * Math.random());
+    //   sb.append(alphabet.charAt(index));
+    // }
+    //return sb.toString();
+    return "test";
   }
 
 }
