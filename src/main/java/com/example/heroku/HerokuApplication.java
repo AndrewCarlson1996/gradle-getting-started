@@ -95,7 +95,7 @@ public class HerokuApplication {
       int index = (int)(alphabet.length() * Math.random());
       sb.append(alphabet.charAt(index));
     }
-    return sb.toString();
+    return "hello";//sb.toString();
   }
 
 }
