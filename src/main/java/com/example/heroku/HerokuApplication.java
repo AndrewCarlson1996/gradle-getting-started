@@ -57,8 +57,9 @@ public class HerokuApplication {
   String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-      stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticksname (tick timestamp, name varchar(30))");
+      stmt.executeUpdate("INSERT INTO ticksname VALUES (now(), '" + getRandomString() + "')");
+
       ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
 
       ArrayList<String> output = new ArrayList<String>();
@@ -85,4 +86,13 @@ public class HerokuApplication {
     }
   }
 
+  public String getRandomString(){
+    StringBuilder sb = new StringBuilder(10);
+    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    for(int i = 0; i < 10; i++){
+      int index = (int)(alphabet.length() * Math.random());
+      sb.append(alphabet.charAt(index));
+    }
+    return sb.toString();
+  }
 }
